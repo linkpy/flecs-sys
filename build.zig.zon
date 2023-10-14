@@ -1,0 +1,11 @@
+.{
+	.name = "flecs-sys",
+	.version = "3.2.0",
+	.paths = .{
+		"include/",
+		"src/",
+		"build.zig",
+		"build.zig.zon"
+	},
+	.dependencies = .{}
+}
