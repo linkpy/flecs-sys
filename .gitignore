@@ -16,3 +16,5 @@ bazel-testlogs
 **/CMakeFiles/*
 .vs
 out
+zig-cache/
+zig-out/
