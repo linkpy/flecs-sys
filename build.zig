@@ -1,6 +1,6 @@
 const std = @import("std");
 
-pub fn build(b: *std.Build) void {
+pub fn build(b: *std.Build) !void {
 	const target = b.standardTargetOptions(.{});
 	const optimize = b.standardOptimizeOption(.{});
 
@@ -20,6 +20,11 @@ pub fn build(b: *std.Build) void {
 
 	lib.addIncludePath(.{ .path = "include/" });
 	lib.addCSourceFiles(c_files, c_flags);
+
+    switch( target.getOsTag() ) {
+        .windows => lib.linkSystemLibrary("ws2_32"),
+        else => {}
+    }
 
 	b.installArtifact(lib);
 
